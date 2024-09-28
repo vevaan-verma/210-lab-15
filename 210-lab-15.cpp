@@ -9,7 +9,7 @@ using namespace std;
 class Movie; // forward declaration of the Movie class so it is recognized in the readMovies() function
 
 /* FUNCTION PROTOTYPES */
-vector<Movie> readMovies();
+void readMovies(vector<Movie>& movies);
 string getStringInput();
 int getIntInput();
 
@@ -41,10 +41,10 @@ public:
 
 	void print() const {
 
-		cout << "Movie Information:" << endl;
-		cout << "Title: " << title << endl;
-		cout << "Year Released: " << yearReleased << endl;
-		cout << "Screen Writer: " << screenWriter << endl;
+		cout << "Movie: " << title << endl;
+		cout << "    Year Released: " << yearReleased << endl;
+		cout << "    Screen Writer: " << screenWriter << endl;
+		cout << "--------------------------------------" << endl;
 
 	}
 };
@@ -63,7 +63,11 @@ int main() {
 
 	}
 
-	readMovies(); // read the movies from the input file
+	vector<Movie> movies; // create a vector of movies
+	readMovies(movies); // read the movies from the input file
+
+	for (Movie movie : movies) // for each movie in the vector
+		movie.print(); // print the movie information
 
 	fin.close(); // close the file at the end
 	return 0;
@@ -71,11 +75,9 @@ int main() {
 }
 
 // readMovies() reads the movies from the input file
-// arguments: none
+// arguments: vector<Movie>& movies - the vector of movies to store the movies in
 // returns: none
 void readMovies(vector<Movie>& movies) {
-
-	vector<Movie> movies; // create a vector of movies
 
 	// to make this function more scalable, the movie count shouldn't be hardcoded
 
