@@ -63,7 +63,7 @@ int main() {
 
 	}
 
-	vector<Movie> movies; // create a vector of movies
+	vector<Movie> movies; // create a vector of movies (as a vector allows for scalability in terms of input file length)
 	readMovies(movies); // read the movies from the input file
 
 	for (Movie movie : movies) // for each movie in the vector
@@ -80,6 +80,7 @@ int main() {
 void readMovies(vector<Movie>& movies) {
 
 	// to make this function more scalable, the movie count shouldn't be hardcoded
+	// instead, just read until the end of the file is reached
 
 	while (!fin.eof()) { // while the file has not reached the end
 
