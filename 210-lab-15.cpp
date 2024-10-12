@@ -101,7 +101,7 @@ void readMovies(vector<Movie>& movies) {
 	}
 }
 
-// getValidatedString() gets the string input from a file stream; it will also exit the program if the file is not formatted as expected
+// getStringInput() gets the string input from a file stream; it will also exit the program if the file is not formatted as expected
 // arguments: none
 // returns: string - the validated string input
 string getStringInput() {
@@ -120,7 +120,7 @@ string getStringInput() {
 
 }
 
-// getValidatedInt() gets the integer input from a file stream and ignores any invalid input
+// getIntInput() gets the integer input from a file stream and ignores any invalid input
 // arguments: none
 // returns: int - the validated integer input
 int getIntInput() {
